@@ -22,7 +22,7 @@ const Home = () => {
       <h2>Filmes:</h2>
       <div className='movies-container'>
         {movies.length === 0 && <p>Loading...</p>}
-      {movies.length > 0 && movies.map((movie) => <MovieCard key={movie.items.id} movie={movie} />)}
+      {movies.length > 0 && movies.map((movie) => <MovieCard key={movie.items.results[0].id} movie={movie} />)}
       </div>
     </div>
   )
