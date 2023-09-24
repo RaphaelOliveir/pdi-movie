@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Tmdb from '../Tmdb';
+import MovieCard from '../components/MovieCard';
 
 const Home = () => {
 
@@ -20,7 +21,8 @@ const Home = () => {
     <div className='container'>
       <h2>Filmes:</h2>
       <div className='movies-container'>
-      {movies && movies.map((movie) => <p>{movie.title}</p>)}
+        {movies.length === 0 && <p>Loading...</p>}
+      {movies.length > 0 && movies.map((movie) => <MovieCard key={movie.items.id} movie={movie} />)}
       </div>
     </div>
   )
