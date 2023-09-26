@@ -5,19 +5,19 @@ import { FaStar } from 'react-icons/fa';
  const imageURL = 'https://image.tmdb.org/t/p/w300';
 
 const MovieCard = ({ movie, showLink = true }) => {
-  console.log('aqui', movie);
-
+  console.log('movie ', movie);
+  console.log('aq ', movie.map((item) => item.poster_path));
   return (
-    <div className="MovieCard">
+    <div className="movie-card" style={{ display: 'inline-block' }}>
       <img
-        src={imageURL + movie.items.results[0].poster_path}
-        alt={movie.items.results[0].title}
+        src={imageURL + movie.poster_path}
+        alt={movie.title}
       />
-      <h2>{movie.items.results[0].title}</h2>
+      <h2>{movie.title}</h2>
       <p>
-        <FaStar />{movie.items.results[0].vote_average}
+        <FaStar />{movie[0].vote_average}
       </p>
-      {showLink && <Link to={`/movie/${movie.items.results[0].id}`}>Detalhes</Link>}
+      {showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
     </div>
   )
 }
